@@ -28,7 +28,7 @@ made by developers.
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
+%description -l pl.UTF-8
 PHP_CodeSniffer jest skryptem PHP5 służącym do rozkładu tekstu kodu
 PHP w celu wykrycia naruszeń pewnych zdefiniowanych standardów
 kodowania. Jest to istotne narzędzie, dzięki któremu można zapewnić
@@ -48,7 +48,7 @@ AutoProv:	no
 %description tests
 Tests for PEAR::%{_pearname}.
 
-%description tests -l pl
+%description tests -l pl.UTF-8
 Testy dla PEAR::%{_pearname}.
 
 %prep

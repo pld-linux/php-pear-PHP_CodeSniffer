@@ -32,8 +32,8 @@ In PEAR status of this package is: %{_status}.
 PHP_CodeSniffer jest skryptem PHP5 służącym do rozkładu tekstu kodu
 PHP w celu wykrycia naruszeń pewnych zdefiniowanych standardów
 kodowania. Jest to istotne narzędzie, dzięki któremu można zapewnić
-czystość i spójność kodu. Może także pomóc w popełnieniu przez
-programistów pewnych częstych błędów semantycznych;
+czystość i spójność kodu. Może także pomóc w zapobieganiu popełniania
+przez programistów pewnych częstych błędów semantycznych.
 
 Ta klasa ma w PEAR status: %{_status}.
 

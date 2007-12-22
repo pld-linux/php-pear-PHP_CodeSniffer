@@ -1,17 +1,17 @@
 %include	/usr/lib/rpm/macros.php
 %define		_class		PHP
 %define		_subclass	CodeSniffer
-%define		_status		beta
+%define		_status		stable
 %define		_pearname	PHP_CodeSniffer
 Summary:	%{_pearname} - PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
 Summary(pl):	%{_pearname} - PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		php-pear-%{_pearname}
-Version:	0.9.0
+Version:	1.0.0
 Release:	1
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	04cc95d7874dfffe1aba6ce5a4319a50
+# Source0-md5:	38c4b9e522a9588fcddcae9ff70c84f7
 URL:		http://pear.php.net/package/PHP_CodeSniffer/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11

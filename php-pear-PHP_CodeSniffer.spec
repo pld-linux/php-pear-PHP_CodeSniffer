@@ -3,23 +3,25 @@
 %define		_subclass	CodeSniffer
 %define		_status		stable
 %define		_pearname	PHP_CodeSniffer
-Summary:	%{_pearname} - PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
-Summary(pl):	%{_pearname} - PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
+%define		php_min_version 5.1.2
+Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
+Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		php-pear-%{_pearname}
-Version:	1.1.0
+Version:	1.2.2
 Release:	1
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	b5f727311b091ee6b6edf8ffcc411e71
+# Source0-md5:	b734e066105d052fde564ab5e6be7091
 URL:		http://pear.php.net/package/PHP_CodeSniffer/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+Requires:	php-common >= 4:%{php_min_version}
 Requires:	php-pear
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreq 'pear(PHP/CodeSniffer/../CodeSniffer.php)'
+%define		_noautoreq pear(PHP/CodeSniffer/../CodeSniffer.php) pear($dir/{$standard}CodingStandard.php)
 
 %description
 PHP_CodeSniffer is a PHP5 script that tokenises and "sniffs" PHP code
@@ -41,11 +43,11 @@ Ta klasa ma w PEAR status: %{_status}.
 
 %package tests
 Summary:	Tests for PEAR::%{_pearname}
-Summary(pl):	Testy dla PEAR::%{_pearname}
+Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
 Requires:	%{name} = %{version}-%{release}
-AutoReq:	no
 AutoProv:	no
+AutoReq:	no
 
 %description tests
 Tests for PEAR::%{_pearname}.
@@ -61,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{php_pear_dir},%{_bindir}}
 %pear_package_install
 
-install .%{_bindir}/phpcs $RPM_BUILD_ROOT%{_bindir}
+install -p .%{_bindir}/phpcs $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,9 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc install.log
 %{php_pear_dir}/.registry/*.reg
 %attr(755,root,root) %{_bindir}/phpcs
-%{php_pear_dir}/PHP/CodeSniffer/
+%{php_pear_dir}/PHP/CodeSniffer
 %{php_pear_dir}/PHP/CodeSniffer.php
-%{php_pear_dir}/data/PHP_CodeSniffer/
+%{php_pear_dir}/data/PHP_CodeSniffer
 
 %files tests
 %defattr(644,root,root,755)

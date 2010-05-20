@@ -1,3 +1,7 @@
+# TODO
+# - save config to /etc:
+# $ phpcs --config-set default_standard PEAR
+# PHP Warning:  file_put_contents(/usr/share/pear/data/PHP_CodeSniffer/CodeSniffer.conf): failed to open stream: Permission denied in /usr/share/pear/PHP/CodeSniffer.php on line 1532
 %include	/usr/lib/rpm/macros.php
 %define		_class		PHP
 %define		_subclass	CodeSniffer

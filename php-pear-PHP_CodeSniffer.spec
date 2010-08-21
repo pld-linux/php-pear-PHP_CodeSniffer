@@ -9,7 +9,7 @@
 %define		_pearname	PHP_CodeSniffer
 %define		php_min_version 5.1.2
 %define		subver	a1
-%define		rel		1
+%define		rel		2
 Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		php-pear-%{_pearname}
@@ -24,6 +24,7 @@ BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-common >= 4:%{php_min_version}
 Requires:	php-pear
+Suggests:	php-pear-PHP_Timer
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

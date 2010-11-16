@@ -3,22 +3,20 @@
 # $ phpcs --config-set default_standard PEAR
 # PHP Warning:  file_put_contents(/usr/share/pear/data/PHP_CodeSniffer/CodeSniffer.conf): failed to open stream: Permission denied in /usr/share/pear/PHP/CodeSniffer.php on line 1532
 %include	/usr/lib/rpm/macros.php
-%define		_class		PHP
-%define		_subclass	CodeSniffer
 %define		_status		alpha
 %define		_pearname	PHP_CodeSniffer
 %define		php_min_version 5.1.2
-%define		subver	a1
-%define		rel		2
+%define		subver	RC1
+%define		rel		1
 Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		php-pear-%{_pearname}
 Version:	1.3.0
-Release:	0.%{subver}.%{rel}
+Release:	%{subver}.%{rel}
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}%{subver}.tgz
-# Source0-md5:	e1b19d7b793d01bce9241ce5e2254395
+# Source0-md5:	122a7a413866df608d87e0e5a868aeda
 URL:		http://pear.php.net/package/PHP_CodeSniffer/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -26,6 +24,7 @@ BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-common >= 4:%{php_min_version}
 Requires:	php-pear
 Suggests:	php-pear-PHP_Timer
+Obsoletes:	php-pear-PHP_CodeSniffer-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,20 +48,6 @@ przez programistów pewnych częstych błędów semantycznych.
 
 Ta klasa ma w PEAR status: %{_status}.
 
-%package tests
-Summary:	Tests for PEAR::%{_pearname}
-Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
-Group:		Development/Languages/PHP
-Requires:	%{name} = %{version}-%{release}
-AutoProv:	no
-AutoReq:	no
-
-%description tests
-Tests for PEAR::%{_pearname}.
-
-%description tests -l pl.UTF-8
-Testy dla PEAR::%{_pearname}.
-
 %prep
 %pear_package_setup
 
@@ -72,6 +57,9 @@ install -d $RPM_BUILD_ROOT{%{php_pear_dir},%{_bindir}}
 %pear_package_install
 
 install -p .%{_bindir}/phpcs $RPM_BUILD_ROOT%{_bindir}
+
+# tests should not be packaged
+%{__rm} -r $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -88,8 +76,5 @@ fi
 %attr(755,root,root) %{_bindir}/phpcs
 %{php_pear_dir}/PHP/CodeSniffer
 %{php_pear_dir}/PHP/CodeSniffer.php
-%{php_pear_dir}/data/PHP_CodeSniffer
 
-%files tests
-%defattr(644,root,root,755)
-%{php_pear_dir}/tests/PHP_CodeSniffer
+%{php_pear_dir}/data/PHP_CodeSniffer

@@ -1,0 +1,11 @@
+--- ./usr/share/pear/PHP/CodeSniffer.php~	2010-11-18 17:19:09.000000000 +0200
++++ ./usr/share/pear/PHP/CodeSniffer.php	2010-11-18 17:19:10.680493675 +0200
+@@ -971,7 +971,7 @@
+                             );
+ 
+             $pattern = strtr($pattern, $replacements);
+-            if (preg_match("|{$pattern}|i", $file) === 1) {
++            if (preg_match("|{$pattern}|", $file) === 1) {
+                 return;
+             }
+         }

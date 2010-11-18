@@ -6,8 +6,8 @@
 %define		_status		alpha
 %define		_pearname	PHP_CodeSniffer
 %define		php_min_version 5.1.2
-%define		subver	RC1
-%define		rel		2
+%define		subver	RC2
+%define		rel		0.1
 Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		php-pear-%{_pearname}
@@ -15,8 +15,9 @@ Version:	1.3.0
 Release:	%{subver}.%{rel}
 License:	BSD License
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}%{subver}.tgz
-# Source0-md5:	122a7a413866df608d87e0e5a868aeda
+#Source0:	http://pear.php.net/get/%{_pearname}-%{version}%{subver}.tgz
+Source0:	%{_pearname}-%{version}%{subver}.tgz
+# Source0-md5:	699eb3fc4e9650b5608fdf7a4067fdf3
 Patch0:		case-sensitive.patch
 URL:		http://pear.php.net/package/PHP_CodeSniffer/
 BuildRequires:	php-pear-PEAR
@@ -61,7 +62,7 @@ install -d $RPM_BUILD_ROOT{%{php_pear_dir},%{_bindir}}
 install -p .%{_bindir}/phpcs $RPM_BUILD_ROOT%{_bindir}
 
 # tests should not be packaged
-%{__rm} -r $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
+%{__rm} -rf $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
 
 %clean
 rm -rf $RPM_BUILD_ROOT

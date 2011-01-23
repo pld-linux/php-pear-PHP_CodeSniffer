@@ -61,9 +61,6 @@ install -d $RPM_BUILD_ROOT{%{php_pear_dir},%{_bindir}}
 
 install -p .%{_bindir}/phpcs $RPM_BUILD_ROOT%{_bindir}
 
-# tests should not be packaged
-%{__rm} -rf $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 

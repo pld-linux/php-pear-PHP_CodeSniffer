@@ -2,29 +2,28 @@
 # - save config to /etc:
 # $ phpcs --config-set default_standard PEAR
 # PHP Warning:  file_put_contents(/usr/share/pear/data/PHP_CodeSniffer/CodeSniffer.conf): failed to open stream: Permission denied in /usr/share/pear/PHP/CodeSniffer.php on line 1532
-%include	/usr/lib/rpm/macros.php
-%define		_status		alpha
-%define		_pearname	PHP_CodeSniffer
+%define		status		alpha
+%define		pearname	PHP_CodeSniffer
 %define		php_min_version 5.1.2
-%define		subver	RC2
-%define		rel		1
+%include	/usr/lib/rpm/macros.php
 Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
-Name:		php-pear-%{_pearname}
+Name:		php-pear-%{pearname}
 Version:	1.3.0
-Release:	%{subver}.%{rel}
+Release:	1
 License:	BSD License
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}%{subver}.tgz
-# Source0-md5:	4fa5df872ab67ce2768747bf8871cddc
+Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
+# Source0-md5:	49f1b9dd4e5b0d01703430d361f4c730
 Patch0:		case-sensitive.patch
 URL:		http://pear.php.net/package/PHP_CodeSniffer/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.580
 Requires:	php-common >= 4:%{php_min_version}
 Requires:	php-pear
 Suggests:	php-pear-PHP_Timer
+Suggests:	php-phpunit-PHP_Timer
 Obsoletes:	php-pear-PHP_CodeSniffer-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -38,7 +37,7 @@ essential development tool that ensures that your code remains clean
 and consistent. It can even help prevent some common semantic errors
 made by developers.
 
-In PEAR status of this package is: %{_status}.
+In PEAR status of this package is: %{status}.
 
 %description -l pl.UTF-8
 PHP_CodeSniffer jest skryptem PHP5 służącym do rozkładu tekstu kodu
@@ -47,7 +46,7 @@ kodowania. Jest to istotne narzędzie, dzięki któremu można zapewnić
 czystość i spójność kodu. Może także pomóc w zapobieganiu popełniania
 przez programistów pewnych częstych błędów semantycznych.
 
-Ta klasa ma w PEAR status: %{_status}.
+Ta klasa ma w PEAR status: %{status}.
 
 %prep
 %pear_package_setup

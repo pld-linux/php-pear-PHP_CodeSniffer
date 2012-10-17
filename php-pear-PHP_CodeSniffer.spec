@@ -10,26 +10,23 @@ Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined 
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		php-pear-%{pearname}
 Version:	1.4.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
 # Source0-md5:	a299051c1dfa3d10ca198d0523e557e7
 Patch0:		case-sensitive.patch
+Patch1:		peardeps.patch
 URL:		http://pear.php.net/package/PHP_CodeSniffer/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.580
 Requires:	php(core) >= %{php_min_version}
 Requires:	php-pear
-Suggests:	php-pear-PHP_Timer
-Suggests:	php-phpunit-PHP_Timer
 Obsoletes:	php-pear-PHP_CodeSniffer-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_noautoreq pear(PHP/CodeSniffer/../CodeSniffer.php) pear($dir/{$standard}CodingStandard.php) pear(PHP/Timer.*)
 
 %description
 PHP_CodeSniffer is a PHP5 script that tokenises and "sniffs" PHP code
@@ -52,6 +49,7 @@ Ta klasa ma w PEAR status: %{status}.
 %prep
 %pear_package_setup
 %patch0 -p1
+%patch1 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -75,5 +73,4 @@ fi
 %attr(755,root,root) %{_bindir}/phpcs
 %{php_pear_dir}/PHP/CodeSniffer
 %{php_pear_dir}/PHP/CodeSniffer.php
-
 %{php_pear_dir}/data/PHP_CodeSniffer

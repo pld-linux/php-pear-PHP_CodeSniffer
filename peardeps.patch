@@ -1,0 +1,30 @@
+--- PHP_CodeSniffer-1.4.0/./usr/share/pear/PHP/CodeSniffer/CLI.php~	2012-10-17 23:08:34.000000000 +0300
++++ PHP_CodeSniffer-1.4.0/./usr/share/pear/PHP/CodeSniffer/CLI.php	2012-10-17 23:09:36.113714250 +0300
+@@ -12,11 +12,7 @@
+  * @link      http://pear.php.net/package/PHP_CodeSniffer
+  */
+ 
+-if (is_file(dirname(__FILE__).'/../CodeSniffer.php') === true) {
+-    include_once dirname(__FILE__).'/../CodeSniffer.php';
+-} else {
+-    include_once 'PHP/CodeSniffer.php';
+-}
++include_once 'PHP/CodeSniffer.php';
+ 
+ /**
+  * A class to process command line phpcs scripts.
+--- PHP_CodeSniffer-1.4.0/./usr/share/pear/PHP/CodeSniffer/Reporting.php~	2012-10-17 23:08:34.000000000 +0300
++++ PHP_CodeSniffer-1.4.0/./usr/share/pear/PHP/CodeSniffer/Reporting.php	2012-10-17 23:09:49.330982079 +0300
+@@ -14,11 +14,7 @@
+  * @link      http://pear.php.net/package/PHP_CodeSniffer
+  */
+ 
+-if (is_file(dirname(__FILE__).'/../CodeSniffer.php') === true) {
+-    include_once dirname(__FILE__).'/../CodeSniffer.php';
+-} else {
+-    include_once 'PHP/CodeSniffer.php';
+-}
++include_once 'PHP/CodeSniffer.php';
+ 
+ /**
+  * A class to manage reporting.

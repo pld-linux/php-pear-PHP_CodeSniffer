@@ -24,6 +24,7 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.580
 Requires:	php(core) >= %{php_min_version}
 Requires:	php-pear
+Suggests:	php-phpunit-PHP_Timer
 Obsoletes:	php-pear-PHP_CodeSniffer-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

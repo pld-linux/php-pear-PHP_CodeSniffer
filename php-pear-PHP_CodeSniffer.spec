@@ -2,20 +2,20 @@
 # - save config to /etc:
 # $ phpcs --config-set default_standard PEAR
 # PHP Warning:  file_put_contents(/usr/share/pear/data/PHP_CodeSniffer/CodeSniffer.conf): failed to open stream: Permission denied in /usr/share/pear/PHP/CodeSniffer.php on line 1532
-%define		status		alpha
+%define		status		stable
 %define		pearname	PHP_CodeSniffer
 %define		php_min_version 5.1.2
 %include	/usr/lib/rpm/macros.php
 Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		php-pear-%{pearname}
-Version:	1.3.6
+Version:	1.4.0
 Release:	1
 Epoch:		1
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
-# Source0-md5:	e716e14517ce3f6cb3a3df0d068570dd
+# Source0-md5:	a299051c1dfa3d10ca198d0523e557e7
 Patch0:		case-sensitive.patch
 URL:		http://pear.php.net/package/PHP_CodeSniffer/
 BuildRequires:	php-pear-PEAR

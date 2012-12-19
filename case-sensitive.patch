@@ -1,11 +1,11 @@
---- PHP_CodeSniffer-1.3.3/usr/share/pear/PHP/CodeSniffer.php~	2012-03-25 18:48:04.000000000 +0300
-+++ PHP_CodeSniffer-1.3.3/usr/share/pear/PHP/CodeSniffer.php	2012-03-25 19:18:24.342112400 +0300
-@@ -1097,7 +1097,7 @@
-                             );
+--- PHP_CodeSniffer-1.4.3/usr/share/pear/PHP/CodeSniffer.php~	2012-12-19 21:54:32.000000000 +0200
++++ PHP_CodeSniffer-1.4.3/usr/share/pear/PHP/CodeSniffer.php	2012-12-19 21:56:17.677485504 +0200
+@@ -1240,7 +1240,7 @@
+                 $testPath = $path;
+             }
  
-             $pattern = strtr($pattern, $replacements);
--            if (preg_match("|{$pattern}|i", $path) === 1) {
-+            if (preg_match("|{$pattern}|", $path) === 1) {
+-            if (preg_match("|{$pattern}|i", $testPath) === 1) {
++            if (preg_match("|{$pattern}|", $testPath) === 1) {
                  return true;
              }
          }//end foreach

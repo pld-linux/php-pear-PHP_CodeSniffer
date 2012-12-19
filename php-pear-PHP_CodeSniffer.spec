@@ -9,13 +9,13 @@
 Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		php-pear-%{pearname}
-Version:	1.4.0
-Release:	2
+Version:	1.4.3
+Release:	1
 Epoch:		1
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
-# Source0-md5:	a299051c1dfa3d10ca198d0523e557e7
+# Source0-md5:	5183c6f31cb154f4adbc4f7044a79645
 Patch0:		case-sensitive.patch
 Patch1:		peardeps.patch
 URL:		http://pear.php.net/package/PHP_CodeSniffer/
@@ -74,4 +74,4 @@ fi
 %attr(755,root,root) %{_bindir}/phpcs
 %{php_pear_dir}/PHP/CodeSniffer
 %{php_pear_dir}/PHP/CodeSniffer.php
-%{php_pear_dir}/data/PHP_CodeSniffer
+#%{php_pear_dir}/data/PHP_CodeSniffer

@@ -62,10 +62,8 @@ install -p .%{_bindir}/phpcs $RPM_BUILD_ROOT%{_bindir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-if [ -f %{_docdir}/%{name}-%{version}/optional-packages.txt ]; then
-	cat %{_docdir}/%{name}-%{version}/optional-packages.txt
-fi
+%post -p <lua>
+%pear_package_print_optionalpackages
 
 %files
 %defattr(644,root,root,755)
@@ -74,4 +72,3 @@ fi
 %attr(755,root,root) %{_bindir}/phpcs
 %{php_pear_dir}/PHP/CodeSniffer
 %{php_pear_dir}/PHP/CodeSniffer.php
-#%{php_pear_dir}/data/PHP_CodeSniffer

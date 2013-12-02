@@ -26,6 +26,7 @@ Requires:	php(core) >= %{php_min_version}
 Requires:	php(ctype)
 Requires:	php(tokenizer)
 Requires:	php-pear
+Suggests:	php(xmlwriter)
 Suggests:	php-phpunit-PHP_Timer
 Obsoletes:	php-pear-PHP_CodeSniffer-tests
 BuildArch:	noarch

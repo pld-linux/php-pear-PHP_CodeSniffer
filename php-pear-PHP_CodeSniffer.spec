@@ -32,6 +32,12 @@ Obsoletes:	php-pear-PHP_CodeSniffer-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+# exclude optional php dependencies
+%define		_noautophp	php-xmlwriter
+
+# put it together for rpmbuild
+%define		_noautoreq	%{?_noautophp}
+
 %description
 PHP_CodeSniffer is a PHP5 script that tokenises and "sniffs" PHP code
 to detect violations of a defined set of coding standards. It is an

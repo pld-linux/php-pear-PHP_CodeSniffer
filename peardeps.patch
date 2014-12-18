@@ -13,18 +13,31 @@
  
  /**
   * A class to process command line phpcs scripts.
---- PHP_CodeSniffer-1.4.0/./usr/share/pear/PHP/CodeSniffer/Reporting.php~	2012-10-17 23:08:34.000000000 +0300
-+++ PHP_CodeSniffer-1.4.0/./usr/share/pear/PHP/CodeSniffer/Reporting.php	2012-10-17 23:09:49.330982079 +0300
-@@ -14,11 +14,7 @@
-  * @link      http://pear.php.net/package/PHP_CodeSniffer
-  */
+--- PHP_CodeSniffer-2.0.0/usr/share/pear/PHP/CodeSniffer/CLI.php~	2014-12-18 15:33:47.000000000 +0200
++++ PHP_CodeSniffer-2.0.0/usr/share/pear/PHP/CodeSniffer/CLI.php	2014-12-18 15:35:53.698306987 +0200
+@@ -80,11 +80,7 @@
+             define('PHP_CODESNIFFER_CBF', false);
+         }
  
--if (is_file(dirname(__FILE__).'/../CodeSniffer.php') === true) {
--    include_once dirname(__FILE__).'/../CodeSniffer.php';
--} else {
--    include_once 'PHP/CodeSniffer.php';
--}
-+include_once 'PHP/CodeSniffer.php';
+-        if (is_file(dirname(__FILE__).'/../CodeSniffer/Reporting.php') === true) {
+-            include_once dirname(__FILE__).'/../CodeSniffer/Reporting.php';
+-        } else {
+-            include_once 'PHP/CodeSniffer/Reporting.php';
+-        }
++        include_once 'PHP/CodeSniffer/Reporting.php';
  
- /**
-  * A class to manage reporting.
+         PHP_CodeSniffer_Reporting::startTiming();
+         $this->checkRequirements();
+@@ -105,11 +105,7 @@
+             define('PHP_CODESNIFFER_CBF', true);
+         }
+ 
+-        if (is_file(dirname(__FILE__).'/../CodeSniffer/Reporting.php') === true) {
+-            include_once dirname(__FILE__).'/../CodeSniffer/Reporting.php';
+-        } else {
+-            include_once 'PHP/CodeSniffer/Reporting.php';
+-        }
++		include_once 'PHP/CodeSniffer/Reporting.php';
+ 
+         PHP_CodeSniffer_Reporting::startTiming();
+         $this->checkRequirements();

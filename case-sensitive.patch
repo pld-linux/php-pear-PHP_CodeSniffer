@@ -1,11 +1,11 @@
---- PHP_CodeSniffer-1.4.3/usr/share/pear/PHP/CodeSniffer.php~	2012-12-19 21:54:32.000000000 +0200
-+++ PHP_CodeSniffer-1.4.3/usr/share/pear/PHP/CodeSniffer.php	2012-12-19 21:56:17.677485504 +0200
-@@ -1240,7 +1240,7 @@
+--- PHP_CodeSniffer-2.0.0/usr/share/pear/PHP/CodeSniffer.php~	2014-12-18 15:30:31.000000000 +0200
++++ PHP_CodeSniffer-2.0.0/usr/share/pear/PHP/CodeSniffer.php	2014-12-18 15:31:17.858092309 +0200
+@@ -1559,7 +1559,7 @@
                  $testPath = $path;
              }
  
--            if (preg_match("|{$pattern}|i", $testPath) === 1) {
-+            if (preg_match("|{$pattern}|", $testPath) === 1) {
+-            $pattern = '`'.$pattern.'`i';
++            $pattern = '`'.$pattern.'`';
+             if (preg_match($pattern, $testPath) === 1) {
                  return true;
              }
-         }//end foreach
